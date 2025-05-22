@@ -3,18 +3,16 @@ package com.pragma.challenge.archetype_gradle.domain.enums;
 import com.pragma.challenge.archetype_gradle.domain.constants.ConstantsMsg;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 
 @Getter
 @RequiredArgsConstructor
 public enum ServerResponses {
-  BAD_REQUEST("E000", HttpStatus.BAD_REQUEST, ConstantsMsg.BAD_REQUEST_MSG),
-  SERVER_ERROR("E001", HttpStatus.INTERNAL_SERVER_ERROR, ConstantsMsg.SERVER_ERROR_MSG),
-  RESOURCE_NOT_FOUND("E002", HttpStatus.NOT_FOUND, ConstantsMsg.RESOURCE_NOT_FOUND_MSG),
-  GATEWAY_ERROR("E003", HttpStatus.INTERNAL_SERVER_ERROR, ConstantsMsg.GATEWAY_ERROR_MSG),
-  GATEWAY_BAD_REQUEST("E004", HttpStatus.BAD_REQUEST, ConstantsMsg.GATEWAY_BAD_REQUEST_MSG);
+  BAD_REQUEST("E000", 400, ConstantsMsg.BAD_REQUEST_MSG),
+  SERVER_ERROR("E001", 500, ConstantsMsg.SERVER_ERROR_MSG),
+  GATEWAY_ERROR("E002", 500, ConstantsMsg.GATEWAY_ERROR_MSG),
+  GATEWAY_BAD_REQUEST("E003", 400, ConstantsMsg.GATEWAY_BAD_REQUEST_MSG);
 
   private final String code;
-  private final HttpStatus httpStatus;
+  private final int httpStatus;
   private final String message;
 }

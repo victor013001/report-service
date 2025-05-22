@@ -1,13 +1,15 @@
 package com.pragma.challenge.archetype_gradle.domain.exceptions;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
 @Builder
-public class StandardError {
+public class StandardError implements Serializable {
   private String code;
 
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
