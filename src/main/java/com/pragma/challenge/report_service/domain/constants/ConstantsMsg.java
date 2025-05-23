@@ -14,4 +14,6 @@ public class ConstantsMsg {
       "An unexpected error occurred while processing the request through the gateway.";
   public static final String SUCCESS_REGISTER_BOOTCAMP_REPORT_MSG =
       "The bootcamp report was register successfully.";
+  public static final String SUCCESS_UPDATE_USER_COUNT_FOR_BOOTCAMP_REPORT_MSG =
+      "The bootcamp report was updated successfully.";
 }

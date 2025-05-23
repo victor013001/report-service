@@ -6,4 +6,6 @@ import reactor.core.publisher.Mono;
 
 public interface ReportHandler {
   Mono<ServerResponse> createBootcampReport(ServerRequest request);
+
+  Mono<ServerResponse> addUserCountToBootcamp(ServerRequest request);
 }

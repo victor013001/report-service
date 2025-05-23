@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.ReactiveMongoDatabaseFactory;
 import org.springframework.data.mongodb.ReactiveMongoTransactionManager;
+import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import org.springframework.transaction.ReactiveTransactionManager;
 import org.springframework.transaction.reactive.TransactionalOperator;
 
@@ -18,6 +19,7 @@ import org.springframework.transaction.reactive.TransactionalOperator;
 public class ReportUseCasesConfig {
   private final ReportBootcampRepository reportBootcampRepository;
   private final ReportBootcampEntityMapper reportBootcampEntityMapper;
+  private final ReactiveMongoTemplate reactiveMongoTemplate;
 
   @Bean
   public ReportUseCase reportUseCase(ReportPersistencePort reportPersistencePort) {
@@ -27,7 +29,10 @@ public class ReportUseCasesConfig {
   @Bean
   public ReportPersistencePort reportPersistencePort(TransactionalOperator transactionalOperator) {
     return new ReportPersistenceAdapter(
-        transactionalOperator, reportBootcampRepository, reportBootcampEntityMapper);
+        transactionalOperator,
+        reportBootcampRepository,
+        reportBootcampEntityMapper,
+        reactiveMongoTemplate);
   }
 
   @Bean
