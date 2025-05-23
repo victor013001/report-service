@@ -12,4 +12,8 @@ public class ConstantsMsg {
       "Failed to process the request due to an internal gateway error.";
   public static final String GATEWAY_BAD_REQUEST_MSG =
       "An unexpected error occurred while processing the request through the gateway.";
+  public static final String SUCCESS_REGISTER_BOOTCAMP_REPORT_MSG =
+      "The bootcamp report was register successfully.";
+  public static final String SUCCESS_UPDATE_USER_COUNT_FOR_BOOTCAMP_REPORT_MSG =
+      "The bootcamp report was updated successfully.";
 }

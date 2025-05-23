@@ -5,7 +5,6 @@ import com.pragma.challenge.report_service.domain.exceptions.StandardError;
 import com.pragma.challenge.report_service.infrastructure.entrypoints.mapper.ServerResponseMapper;
 import java.time.LocalDateTime;
 import lombok.experimental.UtilityClass;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
@@ -13,10 +12,7 @@ import reactor.core.publisher.Mono;
 @UtilityClass
 public class ResponseUtil {
   public static Mono<ServerResponse> buildResponse(
-      HttpStatus httpStatus,
-      Object data,
-      StandardError error,
-      ServerResponseMapper responseMapper) {
+      int httpStatus, Object data, StandardError error, ServerResponseMapper responseMapper) {
     return Mono.defer(
         () ->
             ServerResponse.status(httpStatus)
