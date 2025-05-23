@@ -70,13 +70,12 @@ public class ReportHandlerImpl implements ReportHandler {
                   bootcampIdList.ids());
               return reportServicePort.updateUserCount(bootcampIdList);
             })
-        .flatMap(
-            ignore ->
-                buildResponse(
-                    ServerResponses.SUCCESS_UPDATE_USER_COUNT_FOR_BOOTCAMP_REPORT.getHttpStatus(),
-                    ServerResponses.SUCCESS_UPDATE_USER_COUNT_FOR_BOOTCAMP_REPORT.getMessage(),
-                    null,
-                    serverResponseMapper))
+        .then(
+            buildResponse(
+                ServerResponses.SUCCESS_UPDATE_USER_COUNT_FOR_BOOTCAMP_REPORT.getHttpStatus(),
+                ServerResponses.SUCCESS_UPDATE_USER_COUNT_FOR_BOOTCAMP_REPORT.getMessage(),
+                null,
+                serverResponseMapper))
         .doOnError(logErrorHandler())
         .onErrorResume(StandardException.class, standardErrorHandler())
         .onErrorResume(genericErrorHandler());
