@@ -2,8 +2,8 @@ package com.pragma.challenge.report_service.infrastructure.entrypoints;
 
 import static com.pragma.challenge.report_service.domain.constants.ConstantsRoute.BASE_PATH;
 import static com.pragma.challenge.report_service.domain.constants.ConstantsRoute.BOOTCAMP_PATH;
+import static org.springframework.web.bind.annotation.RequestMethod.PATCH;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
-import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 import static org.springframework.web.reactive.function.server.RequestPredicates.PATCH;
 import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
 import static org.springframework.web.reactive.function.server.RequestPredicates.path;
@@ -82,7 +82,7 @@ public class ReportRouterRest {
                 })),
     @RouterOperation(
         path = BASE_PATH + BOOTCAMP_PATH,
-        method = PUT,
+        method = PATCH,
         beanClass = ReportHandler.class,
         beanMethod = "addUserCountToBootcamp",
         operation =

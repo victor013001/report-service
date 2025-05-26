@@ -32,3 +32,6 @@ management:
       enabled: false
     refresh:
       enabled: false
+
+server:
+  port: 8085
